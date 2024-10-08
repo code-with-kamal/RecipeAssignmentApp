@@ -44,6 +44,8 @@ class RecipeAdapter(
             Glide.with(context).load(recipe?.image)
                 .into(binding.recipeIcon)
             binding.recipeName.text = recipe?.name
+            binding.ingredients.text= recipe?.ingredients.toString()
+
 
             binding.fav.setOnClickListener {
                 listener.AddFavRecipoe(recipe?.id!!)
@@ -61,8 +63,8 @@ class RecipeAdapter(
         }
 
     }
-
     interface Listener {
         fun AddFavRecipoe(id: Int)
+
     }
 }

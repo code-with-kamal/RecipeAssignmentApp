@@ -8,6 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/item_layout"
         android:padding="5dp">
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -25,16 +26,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:textSize="15sp"
             android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toBottomOf="@id/recipe_icon"
             app:layout_constraintStart_toEndOf="@id/recipe_icon"
+            app:layout_constraintBottom_toTopOf="@id/ingredients"
             app:layout_constraintTop_toTopOf="@id/recipe_icon" />
+        <TextView
+            android:id="@+id/ingredients"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="12sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/recipe_icon"
+            app:layout_constraintStart_toStartOf="@id/recipe_name"
+            app:layout_constraintEnd_toStartOf="@id/fav"
+            app:layout_constraintTop_toBottomOf="@id/recipe_name" />
 
         <ImageView
             android:id="@+id/fav"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/ic_favorite"
+            android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

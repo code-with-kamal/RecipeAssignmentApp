@@ -19,7 +19,7 @@ class RecipeViewModel : ViewModel() {
         isLoading = true
         viewModelScope.launch {
             try {
-                val data = repository.getRecipes()
+                val data = repository.getRecipes(20,0)
                 if (data.isSuccessful) {
                     if (data.body() != null) {
                         _recipeList.postValue(ResultRes.Success(data.body()!!))

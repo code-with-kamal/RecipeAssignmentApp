@@ -4,7 +4,7 @@ import retrofit2.Response
 
 class RecipeRepository {
 
-    suspend fun getRecipes(): Response<RecipeModal> {
-        return RetrofitClient.api.getRecipes()
+    suspend fun getRecipes(limit:Int,skip:Int): Response<RecipeModal> {
+        return RetrofitClient.api.getRecipes(limit,skip)
   }
 }
