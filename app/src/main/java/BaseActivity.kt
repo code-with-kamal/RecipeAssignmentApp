@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 open class BaseActivity: AppCompatActivity() {
 
 
-        lateinit var recipeViewModel: RecipeViewModel
+    lateinit var recipeViewModel: RecipeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

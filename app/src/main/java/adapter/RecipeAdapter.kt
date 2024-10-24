@@ -10,9 +10,9 @@ import com.example.recipeapp.databinding.SinglerecipeLayoutBinding
 import modal.RecipeModal
 
 class RecipeAdapter(
-    val recipeData: RecipeModal,
-    val listener: Listener,
-    val favRecipeID: List<Int>
+    private val recipeData: RecipeModal,
+    private val listener: Listener,
+    private val favRecipeID: List<Int>
 ) :
     RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
     private var binding: SinglerecipeLayoutBinding? = null
@@ -45,16 +45,13 @@ class RecipeAdapter(
                 .into(binding.recipeIcon)
             binding.recipeName.text = recipe?.name
             binding.ingredients.text= recipe?.ingredients.toString()
-
-
             binding.fav.setOnClickListener {
-                listener.AddFavRecipoe(recipe?.id!!)
+                listener.addFavRecipoe(recipe?.id!!)
             }
 
             if (favRecipeID.contains(recipe?.id)) {
                 Glide.with(context).load(R.drawable.ic_favorite)
                     .into(binding.fav)
-
             } else {
                 Glide.with(context).load(R.drawable.ic_heart_unfilled)
                     .into(binding.fav)
@@ -64,7 +61,7 @@ class RecipeAdapter(
 
     }
     interface Listener {
-        fun AddFavRecipoe(id: Int)
+        fun addFavRecipoe(id: Int)
 
     }
 }
